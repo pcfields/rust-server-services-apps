@@ -1,0 +1,10 @@
+[package]
+name = "scenario1"
+version = "0.1.0"
+authors = ["pcfields"]
+edition = "2024"
+
+[workspace]
+members = ["tcpserver", "tcpclient", "http", "httpserver"]
+
+[dependencies]
