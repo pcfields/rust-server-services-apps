@@ -1,3 +1,4 @@
+use std::io::{Read, Write};
 use std::net::TcpListener;
 
 fn main() {
@@ -6,8 +7,11 @@ fn main() {
     println!("Running on port 3000");
 
     for stream in connection_listener.incoming() {
-        let _stream = stream.unwrap();
-
+        let mut stream = stream.unwrap();
         println!("Connection established");
+
+        let mut buffer = [0; 5];
+        stream.read_exact(&mut buffer).unwrap();
+        stream.write_all(&buffer).unwrap();
     }
 }
